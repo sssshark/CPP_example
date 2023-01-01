@@ -1,0 +1,2 @@
+#build --config=darwin_config 
+#build:darwin_config --crosstool_top=//toolchain:toolchain_suite
