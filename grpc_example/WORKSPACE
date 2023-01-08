@@ -1,0 +1,26 @@
+workspace(name="grpc_example")
+
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
+
+# load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+# http_archive(
+#     name = "bazel_skylib",
+#     sha256 = "74d544d96f4a5bb630d465ca8bbcfe231e3594e5aae57e1edbf17a6eb3ca2506",
+#     urls = [
+#         "https://github.com/bazelbuild/bazel-skylib/releases/download/1.3.0/bazel-skylib-1.3.0.tar.gz",
+#     ],
+# )
+
+git_repository(
+    name = "com_github_grpc_grpc",
+    remote = "https://github.com/google/grpc",
+    tag = "v1.49.2",
+)
+
+load("@com_github_grpc_grpc//bazel:grpc_deps.bzl", "grpc_deps")
+
+grpc_deps()
+
+load("@com_github_grpc_grpc//bazel:grpc_extra_deps.bzl", "grpc_extra_deps")
+grpc_extra_deps()
