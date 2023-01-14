@@ -1,0 +1,18 @@
+
+syntax = "proto3";
+
+package grpc_example;
+
+message RequestMsg {
+    string request_id = 1;
+    string name = 2;
+}
+
+message ResponseMsg {
+    string response_id = 1;
+    string reply_content = 2;
+}
+
+service TestService {
+    rpc TestFunction(RequestMsg) returns (ResponseMsg) {};
+}
