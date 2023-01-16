@@ -1,0 +1,16 @@
+workspace(name = "log4cplus_example")
+
+new_local_repository(
+    name = "log4cplus",
+    path = "thirdparty/log4cplus",
+    build_file = "thirdparty/log4cplus.BUILD",
+)
+
+
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository", "new_git_repository")
+
+git_repository(
+    name = "com_github_gflags_gflags",
+    remote = "https://github.com/gflags/gflags.git",
+    tag = "v2.2.2",
+)
