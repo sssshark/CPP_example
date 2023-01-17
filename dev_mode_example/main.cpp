@@ -1,21 +1,22 @@
 #include <iostream>
 #include "class_factory/class_factory.h"
+#include "singleton_mode/singleton_mode.h"
 
-
-class TestClass {
+class TestClassFactory {
 public:
     void print() {
-        std::cout<<"Test Class"<<std::endl;
+        std::cout<<"Test ClassFactory"<<std::endl;
     }
 };
 
 
-REGISTER(TestClass);
+REGISTER(TestClassFactory);
 
 int main() 
 {
-    TestClass* test = (TestClass*)ClassFactory::getInstance().getClassByName("TestClass");
+    TestClassFactory* test = (TestClassFactory*)ClassFactory::getInstance().getClassByName("TestClassFactory");
     test->print();
     
+    Singleton::getInstance().Print();
     return 0;
 }
